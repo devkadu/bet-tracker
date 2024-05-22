@@ -3,6 +3,7 @@ import InfoView from "../../components/infoView/InfoView"
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import FirebaseApp from "../../services/firebase/FirebaseApp";
 import { Link } from "react-router-dom";
+import { Wrapper } from "./styles";
 
 const Home = ()=>{
     const [bets, setBets] = useState([]); // Estado para armazenar as apostas
@@ -19,11 +20,11 @@ const Home = ()=>{
       getBets();
     }, []);
     return(
-        <>
+        <Wrapper>
         
         <InfoView bets={bets}/>
         <Link to="/new-bet">Adicione uma aposta</Link>
-        </>
+        </Wrapper>
     )
 }
 

@@ -1,6 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./View/Home/Home";
 import InputItem from "./View/Home/InputItem/InputItem";
+import GlobalStyle from "./theme/GlobalTheme";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme/theme";
+import Home from "./pages/Home.jsx/Home";
+import Header from "./components/header/Header";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -14,10 +18,11 @@ const App = () => {
     },
   ]);
   return (
-    <>
-      <h1>BetTracker</h1>
+    <ThemeProvider theme={theme}>
+    <GlobalStyle />
+      <Header />
       <RouterProvider router={router} />
-    </>
+    </ThemeProvider>
   );
 };
 
